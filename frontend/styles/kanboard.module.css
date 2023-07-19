@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.navbar {
+  flex: 0 0 200px;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.navbar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  margin-bottom: 1rem;
+}
+
+.column {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.task {
+  background-color: #fff;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.task:hover {
+  background-color: #f5f5f5;
+}
+
+.column:last-child .task {
+  cursor: default;
+}
+
