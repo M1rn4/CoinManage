@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
 
+
 const Newproject: NextPage = () => {
+  const [projectDetails, setProjectDetails] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [twitter, setTwitter] = useState('');
@@ -19,7 +21,8 @@ const Newproject: NextPage = () => {
     console.log(name, description, twitter, telegram, ens);
 
     // Redirigir a otra ruta
-    router.push('/kanboard');
+    router.push(`/kanboard?projectDetails=${encodeURIComponent(projectDetails)}`);
+
   };
 
   return (
@@ -43,10 +46,11 @@ const Newproject: NextPage = () => {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={projectDetails}
+            onChange={(e) => setProjectDetails(e.target.value)}
             className={styles.formInput}
           />
+
 
           <label htmlFor="description" className={styles.blackText}>Who is the address of your freelancer?</label>
           <textarea
