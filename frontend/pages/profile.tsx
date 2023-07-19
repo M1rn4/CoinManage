@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
+
+import { useAccount } from 'wagmi'
+
 
 const Profile: NextPage = () => {
   const [name, setName] = useState('');
@@ -9,6 +12,24 @@ const Profile: NextPage = () => {
   const [twitter, setTwitter] = useState('');
   const [telegram, setTelegram] = useState('');
   const [ens, setEns] = useState('');
+
+  const { address, isConnecting, isDisconnected } = useAccount()
+
+
+  useEffect(() => {
+    const getConnectedAddress = async () => {
+
+      try {
+        // Connect to Ethereum provider (e.g., MetaMask)
+
+        console.log('Connected Ethereum address:', address);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    getConnectedAddress();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
